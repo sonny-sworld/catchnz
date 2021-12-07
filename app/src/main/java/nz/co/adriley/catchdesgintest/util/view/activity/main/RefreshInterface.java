@@ -9,6 +9,6 @@ import nz.co.adriley.catchdesgintest.util.net.GeneralCommsResponse;
  **/
 public interface RefreshInterface {
 
-        void refreshCallback(List<GeneralCommsResponse> data);
+    void refreshCallback(List<GeneralCommsResponse> data);
 
 }

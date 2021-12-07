@@ -11,11 +11,13 @@ import nz.co.adriley.catchdesgintest.util.net.GeneralCommsResponse;
 /**
  * Created by sgao on 7/12/2021 11:55
  *
- * @author sgao*/
+ * @author sgao
+ */
 
 
-public class ListHolder extends RecyclerView.ViewHolder{
+public class ListHolder extends RecyclerView.ViewHolder {
     ItemViewBinding binding;
+
     public ListHolder(@NonNull View itemView, ItemViewBinding binding) {
         super(itemView);
         this.binding = binding;

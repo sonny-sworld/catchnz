@@ -15,6 +15,7 @@ public class GeneralCommsResponse implements Serializable {
     public String subtitle;
     @SerializedName("content")
     public String content;
+
     public Integer getId() {
         return id;
     }

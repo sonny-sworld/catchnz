@@ -2,7 +2,6 @@ package nz.co.adriley.catchdesgintest.util.view.adapter;
 
 import static nz.co.adriley.catchdesgintest.util.view.activity.details.DetailsActivity.INTENT_DETAILS_DATA_TAG;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -22,7 +21,8 @@ import nz.co.adriley.catchdesgintest.util.view.activity.details.DetailsActivity;
 /**
  * Created by sgao on 7/12/2021 12:06
  *
- * @author sgao*/
+ * @author sgao
+ */
 
 
 public class ListViewAdapter extends RecyclerView.Adapter<ListHolder> {
@@ -57,8 +57,9 @@ public class ListViewAdapter extends RecyclerView.Adapter<ListHolder> {
             context.startActivity(intent);
         });
     }
+
     @Override
     public int getItemCount() {
-        return listData!=null?listData.size():0;
+        return listData != null ? listData.size() : 0;
     }
 }

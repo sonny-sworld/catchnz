@@ -1,7 +1,9 @@
 package nz.co.adriley.catchdesgintest.util.view.activity.details;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
@@ -35,6 +37,16 @@ public class DetailsActivity extends AppCompatActivity {
             if (getSupportActionBar() != null)
                 getSupportActionBar().setTitle(((GeneralCommsResponse) bundle.get(INTENT_DETAILS_DATA_TAG)).title);
             binding.textView.setText(((GeneralCommsResponse) bundle.get(INTENT_DETAILS_DATA_TAG)).content);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+        }
+        return true;
     }
 }

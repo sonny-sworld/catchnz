@@ -8,7 +8,8 @@ import rx.Observable;
 /**
  * Created by sgao on 6/12/2021 16:07
  *
- * @author sgao*/
+ * @author sgao
+ */
 
 public interface GeneralCommsInterface {
     @GET("data.json")

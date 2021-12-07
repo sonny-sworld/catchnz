@@ -10,11 +10,13 @@ import rx.Subscriber;
 /**
  * Created by sgao on 6/12/2021 16:30
  *
- * @author sgao*/
+ * @author sgao
+ */
 public class GetDataExecute {
-    private final static String TAG  = "GetDataExecute";
+    private final static String TAG = "GetDataExecute";
+
     public static void getData(RefreshInterface callback) {
-        GeneralCommsInterfaceImpl.getDataObservable().subscribe(new Subscriber<List<GeneralCommsResponse>>(){
+        GeneralCommsInterfaceImpl.getDataObservable().subscribe(new Subscriber<List<GeneralCommsResponse>>() {
             @Override
             public void onCompleted() {
             }
@@ -26,7 +28,7 @@ public class GetDataExecute {
             @Override
             public void onNext(List<GeneralCommsResponse> data) {
                 Log.v(TAG, data.get(0).getContent());
-                if(callback!=null) {
+                if (callback != null) {
                     callback.refreshCallback(data);
                 }
             }

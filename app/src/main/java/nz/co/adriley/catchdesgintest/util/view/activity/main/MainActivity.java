@@ -22,13 +22,14 @@ public class MainActivity extends AppCompatActivity implements RefreshInterface 
 
 
     MainActivityBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.main_activity);
-        MainViewModel viewModel =new ViewModelProvider(this).get(MainViewModel.class);
+        MainViewModel viewModel = new ViewModelProvider(this).get(MainViewModel.class);
         binding.setViewModel(viewModel);
-        binding.recyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
+        binding.recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         binding.swipeRefresh.setOnRefreshListener(refreshLayout -> binding.getViewModel().refresh(MainActivity.this));
     }
 
@@ -38,7 +39,6 @@ public class MainActivity extends AppCompatActivity implements RefreshInterface 
         binding.swipeRefresh.finishRefresh();
         binding.imageView.setVisibility(View.GONE);
     }
-
 
 
 }
