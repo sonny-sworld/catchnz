@@ -1,11 +1,10 @@
 package nz.co.adriley.catchdesgintest.util.net;
 
-import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 
 import java.util.List;
 
+import nz.co.adriley.catchdesgintest.util.view.activity.main.RefreshInterface;
 import rx.Subscriber;
 
 /**
@@ -14,7 +13,7 @@ import rx.Subscriber;
  * @author sgao*/
 public class GetDataExecute {
     private final static String TAG  = "GetDataExecute";
-    public static void getData(Context context) {
+    public static void getData(RefreshInterface callback) {
         GeneralCommsInterfaceImpl.getDataObservable().subscribe(new Subscriber<List<GeneralCommsResponse>>(){
             @Override
             public void onCompleted() {
@@ -26,8 +25,10 @@ public class GetDataExecute {
 
             @Override
             public void onNext(List<GeneralCommsResponse> data) {
-                Intent mIntent = new Intent();
                 Log.v(TAG, data.get(0).getContent());
+                if(callback!=null) {
+                    callback.refreshCallback(data);
+                }
             }
         });
     }

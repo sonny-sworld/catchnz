@@ -3,7 +3,9 @@ package nz.co.adriley.catchdesgintest.util.net;
 
 import com.google.gson.annotations.SerializedName;
 
-public class GeneralCommsResponse {
+import java.io.Serializable;
+
+public class GeneralCommsResponse implements Serializable {
 
     @SerializedName("id")
     private Integer id;
