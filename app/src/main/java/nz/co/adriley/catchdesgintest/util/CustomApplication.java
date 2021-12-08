@@ -7,6 +7,8 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 
+import nz.co.adriley.catchdesgintest.util.net.GeneralCommsInterface;
+import nz.co.adriley.catchdesgintest.util.net.component.DaggerPostComponent;
 import nz.co.adriley.catchdesgintest.util.view.activity.main.MainActivity;
 
 /**
@@ -16,11 +18,21 @@ import nz.co.adriley.catchdesgintest.util.view.activity.main.MainActivity;
 public class CustomApplication extends Application {
 
 
+    private static GeneralCommsInterface apiInterface;
     @Override
     public void onCreate() {
         super.onCreate();
         Thread.setDefaultUncaughtExceptionHandler(mCaughtExceptionHandler);
+    }
 
+    public static GeneralCommsInterface getApiInstance() {
+        if (apiInterface == null) {
+            synchronized (GeneralCommsInterface.class) {
+                if (apiInterface == null)
+                    apiInterface = DaggerPostComponent.builder().build().getApiInterface();
+            }
+        }
+        return apiInterface;
     }
 
     private final Thread.UncaughtExceptionHandler mCaughtExceptionHandler = (thread, ex) -> {
